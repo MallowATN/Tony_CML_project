@@ -49,7 +49,7 @@ ax.set_ylabel('Feature', fontsize=axis_fs)
 ax.set_title('GBR\nfeature importance', fontsize=title_fs)
 
 plt.tight_layout()
-plt.savefig('feat_importance.png')
+plt.savefig('images/feat_importance.png')
 plt.close()
 ### Plot Residuals
 
@@ -69,5 +69,5 @@ plt.ylim((0,950000))
 plt.xlim((0,950000))
 
 plt.tight_layout()
-plt.savefig('residuals.png')
+plt.savefig('images/residuals.png')
 plt.close()
