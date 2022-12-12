@@ -50,7 +50,7 @@ ax.set_title('GBR\nfeature importance', fontsize=title_fs)
 
 plt.tight_layout()
 plt.savefig('feat_importance.png')
-
+plt.close()
 ### Plot Residuals
 
 y_pred = pipe.predict(X_test) + np.random.normal(0,0.25,len(y_test))
@@ -64,9 +64,10 @@ ax.set_ylabel('Predicted Total Revenue', fontsize=axis_fs)
 ax.set_title('Residuals',fontsize=title_fs)
 
 #square aspect ratio or line if needed
-# ax.plot([1,8000000], [1,8000000], 'black', linewidth=1)
-# plt.ylim((0,950000))
-# plt.xlim((0,950000))
+ax.plot([1,8000000], [1,8000000], 'black', linewidth=1)
+plt.ylim((0,950000))
+plt.xlim((0,950000))
 
 plt.tight_layout()
-plt.savefig('residuals.png', dpi=120)
+plt.savefig('residuals.png',dpi=120)
+plt.close()
