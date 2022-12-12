@@ -30,12 +30,19 @@ def save_train_test_data(X_train, y_train,X_test, y_test):
     # pd.DataFrame(y_test).to_csv("src/data/test_model_data/test_labels.csv")
     return
 
+# Save the dataframe
+def save_processed_data(df: pd.DataFrame):
+    output_path = "src/data/Processed_Account_Sales.csv"
+    df.to_csv(output_path, index=False)
+    return
+
 # Split the data
 def split_train_test_data():
-    X = df.drop(columns='Total Revenue', axis=1).values
-    y = df['Total Revenue'].values
+    X = df.drop(columns='Total Revenue', axis=1)
+    y = df.pop('Total Revenue')
     X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2, random_state=2)
     save_train_test_data(X_train, y_train, X_test, y_test)
+    save_processed_data(df)
     return X_train, y_train, X_test, y_test
     
 split_train_test_data()
