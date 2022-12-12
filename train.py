@@ -69,5 +69,5 @@ plt.ylim((0,950000))
 plt.xlim((0,950000))
 
 plt.tight_layout()
-plt.savefig('residuals.png',dpi=120)
+plt.savefig('residuals.png')
 plt.close()
