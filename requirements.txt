@@ -1,0 +1,12 @@
+# Basic Data Science libraries
+numpy
+pandas
+matplotlib
+seaborn
+scipy
+plotly
+
+# ML libraries
+scikit-learn
+tensorflow
+keras
