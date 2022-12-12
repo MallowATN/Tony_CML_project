@@ -13,10 +13,10 @@ jobs:
           pip install -r requirements.txt
           python train.py
           
-          echo "## Model metrics" > report.md
+          echo "## Model metrics" >> report.md
           cat src/data/metrics.txt >> report.md
           
-          echo "##Data Viz" >> report.md
+          echo "## Data Visualization" >> report.md
           cml-publish images/feat_importance.png --md >> report.md
           cml-publish images/residuals.png --md >> report.md
           
