@@ -1,0 +1,23 @@
+name: model-training
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: iterative/setup-cml@v1
+      - name: cml_run
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install -r requirements.txt
+          python train.py
+          
+          echo "## Model metrics" >> report.md
+          cat src/data/metrics.txt >> report.md
+          
+          echo "## Data Visualization" >> report.md
+          cml-publish images/feat_importance.png --md >> report.md
+          cml-publish images/residuals.png --md >> report.md
+          
+          cml-send-comment report.md
